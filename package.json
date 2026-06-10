@@ -1,0 +1,55 @@
+{
+  "name": "pico-tool",
+  "version": "1.0.0",
+  "description": "pico tool — open source desktop app for flashing POCA display drivers, POCA OS, and educational projects to Raspberry Pi Pico boards with recycled e-ink displays.",
+  "main": "out/main/index.js",
+  "author": "Peoples Open Codex Alliance <support@projectpoca.org>",
+  "homepage": "https://github.com/ProjectPOCA/pico-tool",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ProjectPOCA/pico-tool.git"
+  },
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "dev": "electron-vite dev",
+    "dev:mock": "PICO_TOOL_MOCK=1 electron-vite dev",
+    "build": "electron-vite build",
+    "start": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "test": "vitest run",
+    "lint:strings": "node scripts/check-ui-strings.mjs",
+    "sync-payloads": "node scripts/sync-payloads.mjs",
+    "build-calibration": "tsx scripts/build-calibration-bins.mts",
+    "dist": "electron-vite build && electron-builder",
+    "postdist": "npm rebuild drivelist serialport",
+    "dist:mac": "electron-vite build && electron-builder --mac",
+    "postdist:mac": "npm rebuild drivelist serialport",
+    "release": "electron-vite build && electron-builder --publish always"
+  },
+  "dependencies": {
+    "drivelist": "^12.0.2",
+    "electron-updater": "^6.8.9",
+    "framer-motion": "^12.40.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "serialport": "^13.0.0",
+    "zod": "^4.4.3",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.2",
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.2.0",
+    "electron": "^42.4.0",
+    "electron-builder": "^26.15.2",
+    "electron-vite": "^5.0.0",
+    "pngjs": "^7.0.0",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "vite": "^7.3.5",
+    "vitest": "^4.1.8"
+  }
+}

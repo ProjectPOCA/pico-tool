@@ -1,0 +1,55 @@
+appId: org.projectpoca.picotool
+productName: pico tool
+copyright: Copyright © 2026 Peoples Open Codex Alliance
+
+directories:
+  buildResources: build
+  output: release
+
+# Renderer dependencies are bundled into out/renderer by vite; keep them out of
+# node_modules packaging. Main-process runtime deps (serialport, drivelist, zod,
+# electron-updater) are externalized and must remain.
+files:
+  - out/**
+  - '!node_modules/{react,react-dom,scheduler,framer-motion,motion-dom,motion-utils,zustand}/**'
+
+extraResources:
+  - from: resources
+    to: resources
+
+asar: true
+
+publish:
+  provider: github
+  owner: ProjectPOCA
+  repo: pico-tool
+
+mac:
+  icon: build/icon.icns
+  category: public.app-category.utilities
+  target:
+    - target: dmg
+      arch: [arm64, x64]
+    - target: zip
+      arch: [arm64, x64]
+  # Unsigned for now. When signing is available, add:
+  # hardenedRuntime: true
+  # entitlements: build/entitlements.mac.plist
+  # notarize: true
+
+win:
+  icon: build/icon.ico
+  target:
+    - nsis
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+
+linux:
+  icon: build/icons
+  category: Utility
+  target:
+    - AppImage
+    - deb

@@ -1,0 +1,31 @@
+:root {
+  /* The entire palette. Nothing else is permitted. */
+  --black: #000000;
+  --white: #ffffff;
+  --red: #ff0000;
+  --yellow: #ffd700;
+  --grey: #d9d9d9;
+  --sage: #789d96;
+
+  --stroke: 2px;
+
+  /* Type scale lifted from the Figma frames (974x694 reference). */
+  --display-size: 70px;
+  --display-tracking: -0.025em; /* halved from the Figma -3.5px at 70px */
+  --display-leading: 69px;
+  --subtitle-size: 28px;
+  --subtitle-tracking: -0.03em;
+  --body-size: 14px;
+  --body-leading: 18.2px;
+  --label-weight: 900;
+
+  --radius-window: 25px;
+  --radius-card: 30px;
+  --radius-tile: 40px;
+  --radius-tile-inner: 31px;
+
+  --page-pad-x: 64px;
+  --page-pad-top: 88px;
+
+  --ease-swiss: cubic-bezier(0.32, 0, 0.15, 1);
+}

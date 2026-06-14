@@ -34,7 +34,7 @@ export function CircleArrowButton(props: {
 }
 
 export function CircleIconButton(props: {
-  icon: 'save' | 'restart' | 'plus'
+  icon: 'save' | 'restart' | 'plus' | 'copy'
   onClick(): void
   disabled?: boolean
   label: string
@@ -47,7 +47,14 @@ export function CircleIconButton(props: {
       aria-label={props.label}
       title={props.label}
     >
-      {props.icon === 'plus' ? (
+      {props.icon === 'copy' ? (
+        <svg width="30" height="30" viewBox="0 0 30 30">
+          <g stroke="#000" strokeWidth="2.4" fill="none" strokeLinejoin="round">
+            <rect x="10" y="10" width="16" height="16" rx="2" />
+            <path d="M6 20a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2" />
+          </g>
+        </svg>
+      ) : props.icon === 'plus' ? (
         <svg width="26" height="26" viewBox="0 0 26 26">
           <g stroke="#000" strokeWidth="3.4" fill="none" strokeLinecap="round">
             <path d="M13 2v22" />

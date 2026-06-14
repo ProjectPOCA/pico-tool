@@ -418,7 +418,7 @@
       }
     },
     {
-      "panelId": "E2206QS071",
+      "panelId": "E2206QSH72",
       "aliases": [],
       "displayName": "Pervasive 2.06",
       "sizeClass": "2.06",
@@ -433,6 +433,8 @@
         "yellow"
       ],
       "refreshSeconds": 26,
+      "variantGroup": "2.06-bwry",
+      "variantLabel": "a",
       "payloadType": "micropython",
       "available": true,
       "internal": {
@@ -499,6 +501,95 @@
           "images/fonts/science_gothic",
           "images/fonts/science_gothic/bmp",
           "images/fonts/science_gothic/bmp/2.1"
+        ]
+      }
+    },
+    {
+      "panelId": "E2206QS071",
+      "aliases": [],
+      "displayName": "Pervasive 2.06",
+      "sizeClass": "2.06",
+      "resolution": [
+        248,
+        128
+      ],
+      "colors": [
+        "black",
+        "white",
+        "red",
+        "yellow"
+      ],
+      "refreshSeconds": 26,
+      "variantGroup": "2.06-bwry",
+      "variantLabel": "b",
+      "payloadType": "micropython",
+      "available": true,
+      "internal": {
+        "family": "2in1",
+        "configTemplate": {
+          "panel_profile": "2in06",
+          "backend": "q_series_qsb71",
+          "ui_orientation": "landscape",
+          "ui_palette": "bwry",
+          "overrides": {
+            "register_table": "fixed266"
+          }
+        },
+        "bootstrapImport": "vusion_2in06_main",
+        "modules": [
+          {
+            "src": "panels/2in1/modules/vusion_2in06_main.py",
+            "dest": "/vusion_2in06_main.py"
+          },
+          {
+            "src": "panels/2in1/modules/vusion_2in06_runtime.py",
+            "dest": "/vusion_2in06_runtime.py"
+          },
+          {
+            "src": "panels/2in1/modules/vusion_2in06_runtime_portrait.py",
+            "dest": "/vusion_2in06_runtime_portrait.py"
+          },
+          {
+            "src": "panels/2in1/modules/vusion_2in06_backend_qsb71.py",
+            "dest": "/vusion_2in06_backend_qsb71.py"
+          }
+        ],
+        "fonts": {
+          "srcDir": "shared/fonts/science_gothic/2.1",
+          "destDir": "/images/fonts/science_gothic/bmp/2.06"
+        },
+        "runtimeAssets": [
+          {
+            "src": "panels/2in1/assets/poca_calibration_2in1_black.bin",
+            "dest": "/images/pac/poca_calibration_2in1_black.bin"
+          },
+          {
+            "src": "panels/2in1/assets/poca_calibration_2in1_red.bin",
+            "dest": "/images/pac/poca_calibration_2in1_red.bin"
+          },
+          {
+            "src": "panels/2in1/assets/poca_calibration_2in1_yellow.bin",
+            "dest": "/images/pac/poca_calibration_2in1_yellow.bin"
+          }
+        ],
+        "calibration": {
+          "planes": {
+            "black": "panels/2in1/assets/poca_calibration_2in1_black.bin",
+            "red": "panels/2in1/assets/poca_calibration_2in1_red.bin",
+            "yellow": "panels/2in1/assets/poca_calibration_2in1_yellow.bin"
+          },
+          "quad": "panels/2in1/assets/poca_calibration_2in1_quad2bpp.bin"
+        },
+        "viewerTemplate": "viewer_split",
+        "deviceDirs": [
+          "state",
+          "images",
+          "images/pac",
+          "images/user",
+          "images/fonts",
+          "images/fonts/science_gothic",
+          "images/fonts/science_gothic/bmp",
+          "images/fonts/science_gothic/bmp/2.06"
         ]
       }
     },

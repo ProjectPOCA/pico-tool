@@ -126,7 +126,8 @@ export const strings = {
     body2:
       'If you’d like to try again, press the restart button below to retry or flash a new Pico device. You can also save the current configuration for future uses.',
     saveTooltip: 'Save to My Pico',
-    restartTooltip: 'Flash another device',
+    copyTooltip: 'Repeat this flash on another Pico',
+    restartTooltip: 'Start over',
     savedName: (panelId: string) => `Pico ${panelId}`
   },
 

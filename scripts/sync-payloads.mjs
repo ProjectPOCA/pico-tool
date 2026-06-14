@@ -42,7 +42,12 @@ const COPY_MAP = [
     'vusion_2in1_runtime_portrait.py',
     'vusion_2in1_backend_power_rail.py',
     'vusion_2in1_backend_ssd.py',
-    'vusion_2in1_backend_q_series.py'
+    'vusion_2in1_backend_q_series.py',
+    // E2206QS071 (2.06 BWRY variant b) — qsb71 Q-family driver set
+    'vusion_2in06_main.py',
+    'vusion_2in06_runtime.py',
+    'vusion_2in06_runtime_portrait.py',
+    'vusion_2in06_backend_qsb71.py'
   ].map((f) => [`tools/${f}`, `panels/2in1/modules/${f}`]),
   // 4.2" class (400x300)
   ...['vusion_4in2_poca_main.py', 'vusion_4in2_q_series_main.py'].map((f) => [

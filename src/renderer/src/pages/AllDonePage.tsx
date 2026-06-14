@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import type { PanelEntry } from '@shared/types'
 import { strings } from '@/strings'
 import { useNav } from '@/navigation/nav-store'
+import { beginFlash } from '@/navigation/flash-actions'
 import { CircleIconButton } from '@/components/buttons'
 import { PanelDiagram } from '@/components/PanelDiagram'
 import { ActivityIcon, BadgeIcon, PocaOsIcon, RasterIcon } from '@/components/ModeIcons'
@@ -59,6 +60,22 @@ export function AllDonePage(): React.JSX.Element {
         : undefined
     })
     setSaved(true)
+  }
+
+  // Re-run the identical flash (same panel, mode, payload) on another Pico.
+  const flashCopy = async (): Promise<void> => {
+    if (!panel || !mode) return
+    await beginFlash({
+      panelId: panel.panelId,
+      mode,
+      inputs: {
+        planes: planes
+          ? { black: planes.black, red: planes.red, yellow: planes.yellow, quad: planes.quad }
+          : undefined,
+        scriptName: scriptName ?? undefined,
+        scriptSource: scriptSource ?? undefined
+      }
+    })
   }
 
   const restart = (): void => {
@@ -125,6 +142,7 @@ export function AllDonePage(): React.JSX.Element {
             disabled={saved || mode === 'test-display'}
             onClick={() => void save()}
           />
+          <CircleIconButton icon="copy" label={t.copyTooltip} onClick={() => void flashCopy()} />
           <CircleIconButton icon="restart" label={t.restartTooltip} onClick={restart} />
         </div>
       </div>
